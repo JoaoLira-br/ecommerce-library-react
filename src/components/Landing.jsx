@@ -1,5 +1,5 @@
 import React from 'react';
-import UndrawBooks from '../assets/undraw_Books.svg';
+import UndrawBooks from '../assets/Undraw_Books.svg';
 
 const Landing = () => {
     return (
@@ -14,7 +14,7 @@ const Landing = () => {
                         </a>
                     </div>
                     <figure className="header__img--wrapper">
-                        <img src="" alt="" className="header__img" />
+                        <img src={UndrawBooks} alt="" className="header__img" />
                     </figure>
                 </div>
             </header>

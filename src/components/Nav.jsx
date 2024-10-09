@@ -14,27 +14,27 @@ const Nav = () => {
   return (
     <nav>
       <div className="nav__container">
-        <a href="/">
+        <Link to="/">
           <img src={LibraryLogo} alt="" className="logo" />
-        </a>
+        </Link>
         <ul className="nav__links">
           <li className="nav__list">
-            <a href="/" className="nav__link">
+            <Link to="/" className="nav__link">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav__list">
-            <a href="/" className="nav__link">
+            <Link to="/Books" className="nav__link">
               Books
-            </a>
+            </Link>
           </li>
           <button className="btn__menu" onClick={openMenu}>
             <FontAwesomeIcon icon="bars" />
           </button>
           <li className="nav__icon">
-            <a href="/cart" className="nav__link">
+            <Link to="/cart" className="nav__link">
               <FontAwesomeIcon icon="shopping-cart" />
-            </a>
+            </Link>
             <span className="cart__length">2</span>
           </li>
         </ul>
@@ -43,14 +43,14 @@ const Nav = () => {
             <FontAwesomeIcon icon="times" />
           </button>
           <ul className="menu__links">
-            <li className="menu__list">
-              <a className="menu__link" href="/">Home</a>
+            <li className="menu__list" onClick={closeMenu}>
+              <Link className="menu__link" to="/" >Home</Link>
             </li>
-            <li className="menu__list">
-              <a className="menu__link" href="/books">Books</a>
+            <li className="menu__list" onClick={closeMenu}>
+              <Link className="menu__link" to="/books">Books</Link>
             </li>
-            <li className="menu__list">
-              <a className="menu__link" href="/cart">Cart</a>
+            <li className="menu__list" onClick={closeMenu}>
+              <Link className="menu__link" to="/cart">Cart</Link>
             </li>
           </ul>
         </div>

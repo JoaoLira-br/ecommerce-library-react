@@ -34,6 +34,14 @@ function App() {
     setCart(cart.filter((cartItem) => +cartItem.id !== +item.id));
     console.log(`removeitem ${item}`);
   }
+
+  function numberOfItems() {
+    let counter = 0;
+    cart.forEach((item) => {
+      counter += +item.quantity;
+    });
+    return counter;
+  }
   // this: top tech useState hook debuggging: since setCart is async, we can`t console.log(cart) right after it, so we use useEffect() with [cart] dependency to console.log(cart) after the state has been updated
   useEffect(() => {
     console.log(cart);
@@ -42,7 +50,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        {/* this numberOfItems() with parenthesis so that the counter is already called on child */}
+        <Nav numberOfItems={numberOfItems()}/>
         {/*this: 'exact' keyword so that other pages don`t match the '/' thus taking them to home instead */}
         <Route path="/" exact component={Home} />
         {/* this render() so that we can pass books as a prop, instead of importing it on the child. Keep the logic to the parent*/}

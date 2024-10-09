@@ -3,14 +3,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LibraryLogo from "../assets/Library.svg";
 import { Link } from "react-router-dom";
-const Nav = () => {
-    function openMenu() {
-        console.log('Pimba menu');
-        document.body.classList.add("menu--open");
-    }
-    function closeMenu() {
-        document.body.classList.remove("menu--open");
-    }
+const Nav = ({ numberOfItems }) => {
+  function openMenu() {
+    console.log("Pimba menu");
+    document.body.classList.add("menu--open");
+  }
+  function closeMenu() {
+    document.body.classList.remove("menu--open");
+  }
   return (
     <nav>
       <div className="nav__container">
@@ -35,7 +35,11 @@ const Nav = () => {
             <Link to="/cart" className="nav__link">
               <FontAwesomeIcon icon="shopping-cart" />
             </Link>
-            <span className="cart__length">2</span>
+            {
+                // this: && useful trick when displaying something if condition is true or nothing if it is false
+                numberOfItems > 0 && (<span className="cart__length">{numberOfItems}</span>)
+            }
+            
           </li>
         </ul>
         <div className="menu__backdrop">
@@ -44,13 +48,19 @@ const Nav = () => {
           </button>
           <ul className="menu__links">
             <li className="menu__list" onClick={closeMenu}>
-              <Link className="menu__link" to="/" >Home</Link>
+              <Link className="menu__link" to="/">
+                Home
+              </Link>
             </li>
             <li className="menu__list" onClick={closeMenu}>
-              <Link className="menu__link" to="/books">Books</Link>
+              <Link className="menu__link" to="/books">
+                Books
+              </Link>
             </li>
             <li className="menu__list" onClick={closeMenu}>
-              <Link className="menu__link" to="/cart">Cart</Link>
+              <Link className="menu__link" to="/cart">
+                Cart
+              </Link>
             </li>
           </ul>
         </div>
